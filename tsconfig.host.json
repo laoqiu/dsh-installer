@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "rootDir": "src",
+    "outDir": "lib",
+    "declaration": true,
+    "types": ["node"]
+  },
+  "include": [
+    "src/index.ts",
+    "src/archive.ts",
+    "src/installer.ts",
+    "src/network.ts",
+    "src/protocol.ts",
+    "src/errors.ts",
+    "src/clipboard.ts"
+  ]
+}

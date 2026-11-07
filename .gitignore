@@ -1,0 +1,10 @@
+node_modules/
+*.tgz
+.test-artifacts/
+.npm-cache/
+.npmrc
+*.npmrc
+.env
+.env.*
+*.key
+*.log

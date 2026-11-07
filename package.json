@@ -1,0 +1,104 @@
+{
+  "name": "dsh-installer",
+  "version": "0.1.5",
+  "description": "Clipboard-assisted installation of free skills and DSH plugin archives",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laoqiu/dsh-installer.git"
+  },
+  "homepage": "https://github.com/laoqiu/dsh-installer#readme",
+  "bugs": {
+    "url": "https://github.com/laoqiu/dsh-installer/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.antistudio.cn/",
+    "access": "public"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24",
+    "dsh": ">=0.2.0-0 <0.3.0-0"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "lib/*.d.ts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run typecheck && tsc -p tsconfig.host.json && node build.mjs",
+    "typecheck": "tsc -p tsconfig.host.json --noEmit && tsc -p tsconfig.client.json",
+    "test": "node --test tests/*.test.mjs",
+    "prepack": "npm run build"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  },
+  "dependencies": {
+    "tar": "^7.5.22",
+    "undici": "^8.12.4",
+    "yaml": "^2.8.1",
+    "yauzl": "^3.2.0",
+    "zod": "^4.6.6"
+  },
+  "overrides": {
+    "zod": "$zod"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-client-connection": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-client-locale": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-layout": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-primitives": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-client-ui-renderer": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-home-paths": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/dsh-plugin-manager": ">=0.2.0-0 <0.3.0-0",
+    "@deepseek-ai/schemastery": "3.18.5",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "4.0.5",
+    "@deepseek-ai/dsh-client-connection": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-locale": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-store": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-ui-layout": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-ui-primitives": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-ui-renderer": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-client-ui-slots": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-home-paths": "0.2.1-rc.5",
+    "@deepseek-ai/dsh-plugin-manager": "0.2.1-rc.5",
+    "@deepseek-ai/schemastery": "3.18.5",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.0",
+    "@types/yauzl": "^2.10.3",
+    "esbuild": "^0.28.2",
+    "fflate": "^0.8.3",
+    "react": "^18.2.0",
+    "typescript": "^5.9.3"
+  }
+}
