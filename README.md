@@ -2,7 +2,7 @@
 
 AntiStudio 的 Harness 网页安装器，用于在本机 DeepSeek Harness 中确认并安装免费的 Skill 和 DSH 插件。
 
-公开发行包：**0.1.5**。托管在 [AntiStudio npm 仓库](https://registry.antistudio.cn/dsh-installer)，支持匿名读取和下载，安装时保留客户端现有的 npm 源配置即可。
+公开发行包：**0.1.6**。托管在 [AntiStudio npm 仓库](https://registry.antistudio.cn/dsh-installer)，支持匿名读取和下载，安装时保留客户端现有的 npm 源配置即可。
 
 ## 安装插件
 
@@ -10,14 +10,14 @@ AntiStudio 的 Harness 网页安装器，用于在本机 DeepSeek Harness 中确
 
 ```text
 请用当前 Harness 的插件管理器安装并启用：
-https://registry.antistudio.cn/dsh-installer/-/dsh-installer-0.1.5.tgz
+https://registry.antistudio.cn/dsh-installer/-/dsh-installer-0.1.6.tgz
 完成后提醒我重启客户端。
 ```
 
 也可以在该客户端的“插件 → 添加插件”中粘贴上述安装包地址。使用 CLI 时：
 
 ```sh
-dsh plugin --profile desktop add https://registry.antistudio.cn/dsh-installer/-/dsh-installer-0.1.5.tgz --save-exact
+dsh plugin --profile desktop add https://registry.antistudio.cn/dsh-installer/-/dsh-installer-0.1.6.tgz --save-exact
 ```
 
 Windows 官方客户端的 CLI 通常位于 `%LOCALAPPDATA%\Programs\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd`。若 `dsh` 不在 PATH 中，用这个完整路径执行命令。
